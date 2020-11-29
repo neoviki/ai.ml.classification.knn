@@ -8,7 +8,7 @@ This purpose of this code is to educate k-NN classifier in a simplified way.
                     Contact : vikiworks.io
 '''
 
-
+import os
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
@@ -19,6 +19,9 @@ import numpy as np
 #Change this value to False to run in no debug mode
 #debug=True
 debug=False
+
+csv_file1 = "../data/training_age_vs_like_milk.csv"
+csv_file2 = "../data/test_age_vs_like_milk.csv"
 
 
 ''' Step 1 : Training Phase '''
@@ -55,7 +58,9 @@ test_output = None
 
 
 def read_csv(file_name, skip_rows=None):
-    csv_data = pd.read_csv(file_name, skiprows=skip_rows, sep=',',header=None)
+    PWD=os.getcwd() #present working directory
+    p_file_name = os.path.join(PWD, file_name)
+    csv_data = pd.read_csv(p_file_name, skiprows=skip_rows, sep=',', header=None)
     return csv_data
 
 def print_csv_head(csv_data):
@@ -130,7 +135,7 @@ def does_this_person_drink_milk(model, age, height):
     new_input=np.array([[age, height]])
     predicted_output = knn_predict(model, new_input)
 
-	print "[ Caution ] This is computer predicted, may or may not be true!"
+    print "[ Caution ] This is a predicted done from our limited data. The prediction may or may not be true!\n"
     if predicted_output[0] == 1:
         print "A person of age ( "+str(age)+" ) and height ( "+str(height)+" cm ) drink milk? Yes"
     else:
@@ -163,8 +168,8 @@ def get_height():
 
 print "\n"
 
-csv1 = read_csv("../data/test_age_vs_like_milk.csv", 1)
-csv2 = read_csv("../data/training_age_vs_like_milk.csv",1)
+csv1 = read_csv(csv_file1, 1)
+csv2 = read_csv(csv_file1, 1)
 
 if debug:
     print "Sample content for csv1 :\n"
@@ -224,6 +229,8 @@ print "\n"
 
 #prediction
 does_this_person_drink_milk(model, age, height)
+
+
 
 
 
