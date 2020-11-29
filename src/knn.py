@@ -163,8 +163,8 @@ def get_height():
 
 print "\n"
 
-csv1 = read_csv("test_age_vs_like_milk.csv", 1)
-csv2 = read_csv("training_age_vs_like_milk.csv",1)
+csv1 = read_csv("../data/test_age_vs_like_milk.csv", 1)
+csv2 = read_csv("../data/training_age_vs_like_milk.csv",1)
 
 if debug:
     print "Sample content for csv1 :\n"
