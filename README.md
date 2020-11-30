@@ -22,3 +22,26 @@ In this project, I am trying to explain KNN in a simplified manner.
 
 	- src/knn.p
 
+## How to run this program?
+
+#### Setup local python environment: [ Tested only on Mac ]
+
+    1. cd <this repo>
+    2. cd src
+    3. chmod +x setup_mac.sh 
+    4. ./setup_mac.sh
+
+
+#### Run KNN program: [ Tested only on Mac ]
+    1. cd <this repo>
+    2. cd src
+    3. chmod +x run.sh 
+    4. ./run.sh
+
+#### Clean local python environment: [ Tested only on Mac ]
+    1. cd <this repo>
+    2. cd src
+    3. chmod +x clean.sh
+    4. ./clean.sh
+
+
